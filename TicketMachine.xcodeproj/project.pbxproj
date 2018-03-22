@@ -16,6 +16,7 @@
 		1FAA2EFF2061CD6800E1EC57 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA2EFE2061CD6800E1EC57 /* City.swift */; };
 		1FAA2F012061D74C00E1EC57 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA2F002061D74C00E1EC57 /* CityCell.swift */; };
 		1FAA2F042061DA2500E1EC57 /* CitiesViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA2F032061DA2500E1EC57 /* CitiesViewController+tableView.swift */; };
+		1FAA2F0720631C5B00E1EC57 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA2F0620631C5B00E1EC57 /* Extensions.swift */; };
 		B2653442E67EC08CFD26D8D1 /* Pods_TicketMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75389EE200B2A905B7645E57 /* Pods_TicketMachine.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		1FAA2EFE2061CD6800E1EC57 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		1FAA2F002061D74C00E1EC57 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		1FAA2F032061DA2500E1EC57 /* CitiesViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CitiesViewController+tableView.swift"; sourceTree = "<group>"; };
+		1FAA2F0620631C5B00E1EC57 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2662AEFD0F17057EB90DD5B7 /* Pods-TicketMachine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketMachine.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketMachine/Pods-TicketMachine.release.xcconfig"; sourceTree = "<group>"; };
 		75389EE200B2A905B7645E57 /* Pods_TicketMachine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketMachine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2AEFE2D972EDEB84B494D52 /* Pods-TicketMachine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketMachine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketMachine/Pods-TicketMachine.debug.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		1F561D2C2061C37D00574EFA /* TicketMachine */ = {
 			isa = PBXGroup;
 			children = (
+				1FAA2F0520631C4500E1EC57 /* Extensions */,
 				1FAA2F022061D75200E1EC57 /* Views */,
 				1FAA2EFD2061CCE400E1EC57 /* Model */,
 				1F561D402061C87F00574EFA /* Api */,
@@ -123,6 +126,14 @@
 			);
 			name = Views;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		1FAA2F0520631C4500E1EC57 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1FAA2F0620631C5B00E1EC57 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		6FDB9DC3E78AAC7305CCD4CE /* Frameworks */ = {
@@ -268,6 +279,7 @@
 				1FAA2F012061D74C00E1EC57 /* CityCell.swift in Sources */,
 				1F561D2E2061C37D00574EFA /* AppDelegate.swift in Sources */,
 				1F561D422061C89100574EFA /* ApiService.swift in Sources */,
+				1FAA2F0720631C5B00E1EC57 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

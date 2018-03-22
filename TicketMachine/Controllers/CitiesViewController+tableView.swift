@@ -13,12 +13,12 @@ extension CitiesViewController {
     
     //MARK:- TableView Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cities.count
+        return filteredCities.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cityCellId, for: indexPath) as! CityCell
-        cell.city = cities[indexPath.row]
+        cell.city = filteredCities[indexPath.row]
         return cell
     }
     
