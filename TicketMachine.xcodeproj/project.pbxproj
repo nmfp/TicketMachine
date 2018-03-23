@@ -13,6 +13,9 @@
 		1F561D352061C37D00574EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F561D342061C37D00574EFA /* Assets.xcassets */; };
 		1F561D382061C37D00574EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F561D362061C37D00574EFA /* LaunchScreen.storyboard */; };
 		1F561D422061C89100574EFA /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F561D412061C89100574EFA /* ApiService.swift */; };
+		1F5BF72720654C6B007C083A /* CitiesViewController+searchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BF72620654C6B007C083A /* CitiesViewController+searchBar.swift */; };
+		1F5BF72F20656102007C083A /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BF72E20656102007C083A /* BaseCell.swift */; };
+		1F5BF73120656496007C083A /* NextLetterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BF73020656496007C083A /* NextLetterCell.swift */; };
 		1FAA2EFF2061CD6800E1EC57 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA2EFE2061CD6800E1EC57 /* City.swift */; };
 		1FAA2F012061D74C00E1EC57 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA2F002061D74C00E1EC57 /* CityCell.swift */; };
 		1FAA2F042061DA2500E1EC57 /* CitiesViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA2F032061DA2500E1EC57 /* CitiesViewController+tableView.swift */; };
@@ -29,6 +32,9 @@
 		1F561D372061C37D00574EFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F561D392061C37D00574EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F561D412061C89100574EFA /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		1F5BF72620654C6B007C083A /* CitiesViewController+searchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CitiesViewController+searchBar.swift"; sourceTree = "<group>"; };
+		1F5BF72E20656102007C083A /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		1F5BF73020656496007C083A /* NextLetterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLetterCell.swift; sourceTree = "<group>"; };
 		1FAA2EFE2061CD6800E1EC57 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		1FAA2F002061D74C00E1EC57 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		1FAA2F032061DA2500E1EC57 /* CitiesViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CitiesViewController+tableView.swift"; sourceTree = "<group>"; };
@@ -99,6 +105,7 @@
 			children = (
 				1F561D2F2061C37D00574EFA /* CitiesViewController.swift */,
 				1FAA2F032061DA2500E1EC57 /* CitiesViewController+tableView.swift */,
+				1F5BF72620654C6B007C083A /* CitiesViewController+searchBar.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -123,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				1FAA2F002061D74C00E1EC57 /* CityCell.swift */,
+				1F5BF72E20656102007C083A /* BaseCell.swift */,
+				1F5BF73020656496007C083A /* NextLetterCell.swift */,
 			);
 			name = Views;
 			path = "New Group";
@@ -277,7 +286,10 @@
 				1FAA2F042061DA2500E1EC57 /* CitiesViewController+tableView.swift in Sources */,
 				1F561D302061C37D00574EFA /* CitiesViewController.swift in Sources */,
 				1FAA2F012061D74C00E1EC57 /* CityCell.swift in Sources */,
+				1F5BF72F20656102007C083A /* BaseCell.swift in Sources */,
+				1F5BF73120656496007C083A /* NextLetterCell.swift in Sources */,
 				1F561D2E2061C37D00574EFA /* AppDelegate.swift in Sources */,
+				1F5BF72720654C6B007C083A /* CitiesViewController+searchBar.swift in Sources */,
 				1F561D422061C89100574EFA /* ApiService.swift in Sources */,
 				1FAA2F0720631C5B00E1EC57 /* Extensions.swift in Sources */,
 			);
@@ -420,6 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JBEYETDGSB;
 				INFOPLIST_FILE = TicketMachine/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nMfpereira.TicketMachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -436,6 +449,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JBEYETDGSB;
 				INFOPLIST_FILE = TicketMachine/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nMfpereira.TicketMachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -22,75 +22,43 @@ class CitiesViewController: UITableViewController , UISearchBarDelegate {
 
     var cities = [City]()
     var filteredCities = [City]()
-    var letters = [Character]()
+    var letters = [String]()
     
-    var textBeingSearched: String = ""
+    let nextLetterCellId = "nextLetterCellId"
     let cityCellId = "cityCellId"
     let sectionTitles = ["Next Character Available", "Cities"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .white
-        navigationItem.title = "Cities"
-        
-        guard let navBar = navigationController?.navigationBar else {return}
-        navBar.addSubview(searchBar)
-        
-        NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: navBar.topAnchor),
-            searchBar.leftAnchor.constraint(equalTo: navBar.leftAnchor, constant: 8),
-            searchBar.bottomAnchor.constraint(equalTo: navBar.bottomAnchor, constant: 0),
-            searchBar.rightAnchor.constraint(equalTo: navBar.rightAnchor, constant: -8)
-            ])
-        
         
         fetchCities()
-        
-        tableView.tableFooterView = UIView()
-        tableView.register(CityCell.self, forCellReuseIdentifier: cityCellId)
+        setupNavBar()
+        setupTableView()
     }
 
+    //MARK:- SetupUI
+    fileprivate func setupNavBar() {
+        guard let navBar = navigationController?.navigationBar else {return}
+        navBar.addSubview(searchBar)
+        //UIView extension method to setup auto layout
+        searchBar.anchor(top: navBar.topAnchor, left: navBar.leftAnchor, bottom: navBar.bottomAnchor, right: navBar.rightAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 8, width: 0, height: 0)
+    }
+    
+    fileprivate func setupTableView() {
+        tableView.tableFooterView = UIView()
+        tableView.register(CityCell.self, forCellReuseIdentifier: cityCellId)
+        tableView.register(NextLetterCell.self, forCellReuseIdentifier: nextLetterCellId)
+    }
+    
     //Fetch cities from web
     private func fetchCities() {
         ApiService.shared.getCapitalsFromServer { cities in
-            self.cities = cities
-            self.filteredCities = cities
+            //Sorting alphabetically and removing empty elements to be user friendly
+            self.cities = cities.sorted {c1, c2 -> Bool in c1.name < c2.name }.filter {$0.name != ""}
+            self.filteredCities = self.cities
             self.tableView.reloadData()
         }
     }
-    
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        textBeingSearched = searchText
-        if searchText.isEmpty {
-            filteredCities = cities
-        }
-        else {
-            let startDate = Date()
-//            filteredCities = cities.filter{ city in
-//                if city.name!.lowercased().hasPrefix(searchText.lowercased()) {
-//                    letters.append(String(describing: city.name!.first))
-//                    return true
-//                }
-//                return false
-//            }
-            
-            filteredCities = cities.filter({$0.name!.lowercased().hasPrefix(searchText.lowercased())})
-            let lettersWithRepetitions = filteredCities.flatMap({ (c) -> String in
-                guard let index = c.name?.index(c.name!.startIndex, offsetBy: searchText.count) else {return ""}
-                return try! String(describing: c.name![index])
-            })
-            
-            letters = Array(Set(lettersWithRepetitions))
-            let endDate = Date()
-            print("Tempo: ", endDate.timeIntervalSince1970 - startDate.timeIntervalSince1970)
-            print("Tempo 2: ", endDate.timeIntervalSince(startDate))
-            print("\n\n", letters)
-        }
-        
-        self.tableView.reloadData()
-    }
-
 }
 

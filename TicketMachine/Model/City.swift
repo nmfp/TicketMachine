@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 struct City: Decodable {
-    var name: String?
+    var name: String
     
     init(from decoder: Decoder) throws {
         let containter = try decoder.container(keyedBy: keys.self)
-        name = try? containter.decode(String.self, forKey: .name)
+        name = try containter.decode(String.self, forKey: .name)
     }
     
     private enum keys: String, CodingKey {

@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class CityCell: UITableViewCell {
+class CityCell: BaseCell {
     
-    var city: String? {
+    var cityData: String? {
         didSet {
-            cityLabel.text = city
+            cityLabel.text = cityData
         }
     }
     
@@ -24,23 +24,8 @@ class CityCell: UITableViewCell {
         return label
     }()
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupViews() {
+    override func setupViews() {
         addSubview(cityLabel)
-        
-        NSLayoutConstraint.activate([
-            cityLabel.topAnchor.constraint(equalTo: topAnchor),
-            cityLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 12),
-            cityLabel.rightAnchor.constraint(equalTo: rightAnchor),
-            cityLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
-            ])
+        cityLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     }
 }
