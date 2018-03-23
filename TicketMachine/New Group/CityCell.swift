@@ -11,9 +11,9 @@ import UIKit
 
 class CityCell: UITableViewCell {
     
-    var city: City? {
+    var city: String? {
         didSet {
-            cityLabel.text = city?.name
+            cityLabel.text = city
         }
     }
     

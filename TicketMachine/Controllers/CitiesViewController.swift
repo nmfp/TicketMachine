@@ -22,9 +22,11 @@ class CitiesViewController: UITableViewController , UISearchBarDelegate {
 
     var cities = [City]()
     var filteredCities = [City]()
-    var letters = [String]()
+    var letters = [Character]()
     
+    var textBeingSearched: String = ""
     let cityCellId = "cityCellId"
+    let sectionTitles = ["Next Character Available", "Cities"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +62,7 @@ class CitiesViewController: UITableViewController , UISearchBarDelegate {
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        textBeingSearched = searchText
         if searchText.isEmpty {
             filteredCities = cities
         }
@@ -75,11 +77,16 @@ class CitiesViewController: UITableViewController , UISearchBarDelegate {
 //            }
             
             filteredCities = cities.filter({$0.name!.lowercased().hasPrefix(searchText.lowercased())})
-            letters = filteredCities.map({ (c) -> String in
-                return String(describing: c.name!.first)
+            let lettersWithRepetitions = filteredCities.flatMap({ (c) -> String in
+                guard let index = c.name?.index(c.name!.startIndex, offsetBy: searchText.count) else {return ""}
+                return try! String(describing: c.name![index])
             })
+            
+            letters = Array(Set(lettersWithRepetitions))
             let endDate = Date()
             print("Tempo: ", endDate.timeIntervalSince1970 - startDate.timeIntervalSince1970)
+            print("Tempo 2: ", endDate.timeIntervalSince(startDate))
+            print("\n\n", letters)
         }
         
         self.tableView.reloadData()
